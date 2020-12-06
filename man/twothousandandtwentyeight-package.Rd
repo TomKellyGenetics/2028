@@ -40,9 +40,9 @@ available operators:\cr
 \dontrun{
 
 the_data <-
-  read.csv('/path/to/data/file.csv') \%(笑)\%
-  subset(variable_a > x) \%(笑)\%
-  transform(variable_c = variable_a/variable_b) \%(笑)\%
+  read.csv('/path/to/data/file.csv') \%🤣\%
+  subset(variable_a > x) \%🤣\%
+  transform(variable_c = variable_a/variable_b) \%🤣\%
   head(100)
 }
 }

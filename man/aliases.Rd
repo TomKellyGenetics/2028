@@ -69,21 +69,21 @@ Currently implemented aliases are
 }
 }
 \examples{
- iris \%(笑)\%
-   extract(, 1:4) \%(笑)\%
+ iris \%🤣\%
+   extract(, 1:4) \%🤣\%
    head
 
 good.times <-
-  Sys.Date() \%(笑)\%
-  as.POSIXct \%(笑)\%
-  seq(by = "15 mins", length.out = 100) \%(笑)\%
+  Sys.Date() \%🤣\%
+  as.POSIXct \%🤣\%
+  seq(by = "15 mins", length.out = 100) \%🤣\%
   data.frame(timestamp = .)
 
 good.times$quarter <-
-  good.times \%(笑)\%
-  use_series(timestamp) \%(笑)\%
-  format("\%M") \%(笑)\%
-  as.numeric \%(笑)\%
-  divide_by_int(15) \%(笑)\%
+  good.times \%🤣\%
+  use_series(timestamp) \%🤣\%
+  format("\%M") \%🤣\%
+  as.numeric \%🤣\%
+  divide_by_int(15) \%🤣\%
   add(1)
 }

@@ -21,9 +21,9 @@ The tee pipe works like \code{\link{\%>\%}}, except the
 return value is \code{lhs} itself, and not the result of \code{rhs} function/expression.
 }
 \examples{
-rnorm(200) \%(笑)\%
+rnorm(200) \%🤣\%
 matrix(ncol = 2) \%T>\%
-plot \%(笑)\% # plot usually does not return anything. 
+plot \%🤣\% # plot usually does not return anything. 
 colSums
 
 }
