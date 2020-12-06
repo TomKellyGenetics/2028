@@ -3,7 +3,7 @@
 
 # 2028 <a href='https://twitter.com/tomkXY/status/1335275638932918272'><img src='https://nugalis.com/japanese/vocabulary/image/3142/v1-/warai-laughlaughtersmile.jpg' align="right" height="139" /></a>
 
-**Disclaimer: this is a novelty cosmetic package that replaces the magrittr pipe with hilarous alternatives. We do not recommend actually using it in important projects.**
+**Disclaimer: this is a novelty cosmetic package that replaces the twothousandandtwentyeight pipe with hilarous alternatives. We do not recommend actually using it in important projects.**
 
 ---------------------------
 
@@ -49,7 +49,7 @@ Also, no temporary variables are needed. If yet another operation is
 required, it is straightforward to add to the sequence of operations
 wherever it may be needed.
 
-If you are new to magrittr, the best place to start is the [pipes
+If you are new to twothousandandtwentyeight, the best place to start is the [pipes
 chapter](https://r4ds.had.co.nz/pipes.html) in R for data science.
 
 ## Installation
@@ -88,7 +88,7 @@ implication.
 
 It is straightforward to use the placeholder several times in a
 right-hand side expression. However, when the placeholder only appears
-in a nested expressions magrittr will still apply the first-argument
+in a nested expressions twothousandandtwentyeight will still apply the first-argument
 rule. The reason is that in most cases this results more clean code.
 
 `x %>% f(y = nrow(.), z = ncol(.))` is equivalent to `f(x, y = nrow(x),
@@ -104,7 +104,7 @@ braces:
 
 Any pipeline starting with the `.` will return a function which can
 later be used to apply the pipeline to values. Building functions in
-magrittr is therefore similar to building other values.
+twothousandandtwentyeight is therefore similar to building other values.
 
 ``` r
 f <- . %>% cos %>% sin 
@@ -134,6 +134,6 @@ data.frame(z = rnorm(100)) %$%
 
 ## Code of Conduct
 
-Please note that the magrittr project is released with a [Contributor
-Code of Conduct](https://magrittr.tidyverse.org/CODE_OF_CONDUCT.html).
+Please note that the twothousandandtwentyeight project is released with a [Contributor
+Code of Conduct](https://twothousandandtwentyeight.tidyverse.org/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.

@@ -1,4 +1,4 @@
 library(testthat)
-library(magrittr)
+library(twothousandandtwentyeight)
 
-test_check("magrittr")
+test_check("twothousandandtwentyeight")

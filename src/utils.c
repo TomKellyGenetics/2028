@@ -113,7 +113,7 @@ SEXP r_new_environment(SEXP parent, R_len_t size) {
 #endif
 
 
-void magrittr_init_utils(SEXP ns) {
+void twothousandandtwentyeight_init_utils(SEXP ns) {
   syms_delayed_assign = Rf_install("delayedAssign");
   syms_envir = Rf_install("envir");
   syms_inherits = Rf_install("inherits");

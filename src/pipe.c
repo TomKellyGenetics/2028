@@ -10,7 +10,7 @@
 
 enum pipe_kind {
   PIPE_KIND_none = 0,
-  PIPE_KIND_magrittr,
+  PIPE_KIND_twothousandandtwentyeight,
   PIPE_KIND_compound,
   PIPE_KIND_tee,
   PIPE_KIND_dollar
@@ -27,7 +27,7 @@ struct cleanup_info {
 };
 
 // Initialised at load time
-static SEXP magrittr_ns_env = NULL;
+static SEXP twothousandandtwentyeight_ns_env = NULL;
 static SEXP syms_lhs = NULL;
 static SEXP syms_rhs = NULL;
 static SEXP syms_kind = NULL;
@@ -65,7 +65,7 @@ static SEXP new_lambda(SEXP exprs, SEXP env);
 static inline bool is_return(SEXP x);
 
 // [[ register() ]]
-SEXP magrittr_pipe(SEXP call, SEXP op, SEXP args, SEXP rho) {
+SEXP twothousandandtwentyeight_pipe(SEXP call, SEXP op, SEXP args, SEXP rho) {
   args = CDR(args);
 
   SEXP lhs = PROTECT(Rf_eval(syms_lhs, rho));
@@ -83,7 +83,7 @@ SEXP magrittr_pipe(SEXP call, SEXP op, SEXP args, SEXP rho) {
   SEXP assign = R_NilValue;
   SEXP exprs = PROTECT(pipe_unroll(lhs, rhs, env, c_kind, pipe_sym, &assign));
 
-  // Create a magrittr lambda when first expression is a `.`
+  // Create a twothousandandtwentyeight lambda when first expression is a `.`
   if (CAR(exprs) == syms_dot) {
     SEXP lambda = new_lambda(CDR(exprs), env);
     UNPROTECT(6);
@@ -235,7 +235,7 @@ SEXP pipe_unroll(SEXP lhs,
       rhs = as_pipe_call(rhs);
       break;
     }
-    case PIPE_KIND_magrittr: rhs = as_pipe_call(rhs); break;
+    case PIPE_KIND_twothousandandtwentyeight: rhs = as_pipe_call(rhs); break;
     case PIPE_KIND_tee: rhs = as_pipe_tee_call(rhs); break;
     case PIPE_KIND_dollar: rhs = as_pipe_dollar_call(rhs); break;
     case PIPE_KIND_none: Rf_error("Internal error in `pipe_unroll()`: Unexpected state.");
@@ -270,7 +270,7 @@ enum pipe_kind parse_pipe_call(SEXP x, SEXP pipe_sym) {
   SEXP car = CAR(x);
 
   if (car == pipe_sym) {
-    return PIPE_KIND_magrittr;
+    return PIPE_KIND_twothousandandtwentyeight;
   }
   if (car == syms_pipe_compound) {
     return PIPE_KIND_compound;
@@ -399,7 +399,7 @@ SEXP pipe_nest(SEXP exprs) {
 static
 SEXP new_lambda(SEXP exprs, SEXP env) {
   SEXP call = PROTECT(Rf_lang3(syms_new_lambda, exprs, env));
-  SEXP out = Rf_eval(call, magrittr_ns_env);
+  SEXP out = Rf_eval(call, twothousandandtwentyeight_ns_env);
 
   UNPROTECT(1);
   return out;
@@ -408,11 +408,11 @@ SEXP new_lambda(SEXP exprs, SEXP env) {
 
 // Initialisation ----------------------------------------------------
 
-void magrittr_init_utils(SEXP ns);
+void twothousandandtwentyeight_init_utils(SEXP ns);
 
-SEXP magrittr_init(SEXP ns) {
-  magrittr_ns_env = ns;
-  magrittr_init_utils(ns);
+SEXP twothousandandtwentyeight_init(SEXP ns) {
+  twothousandandtwentyeight_ns_env = ns;
+  twothousandandtwentyeight_init_utils(ns);
 
   syms_lhs = Rf_install("lhs");
   syms_rhs = Rf_install("rhs");
@@ -448,16 +448,16 @@ SEXP magrittr_init(SEXP ns) {
 }
 
 static const R_CallMethodDef call_entries[] = {
-  {"magrittr_init",              (DL_FUNC) magrittr_init, 1},
+  {"twothousandandtwentyeight_init",              (DL_FUNC) twothousandandtwentyeight_init, 1},
   {NULL, NULL, 0}
 };
 
 static const R_ExternalMethodDef ext_entries[] = {
-  {"magrittr_pipe",              (DL_FUNC) magrittr_pipe, 0},
+  {"twothousandandtwentyeight_pipe",              (DL_FUNC) twothousandandtwentyeight_pipe, 0},
   {NULL, NULL, 0}
 };
 
-export void R_init_magrittr(DllInfo *dll) {
+export void R_init_twothousandandtwentyeight(DllInfo *dll) {
     R_registerRoutines(dll, NULL, call_entries, NULL, ext_entries);
     R_useDynamicSymbols(dll, FALSE);
 }

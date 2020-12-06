@@ -1,6 +1,6 @@
-#' magrittr - Ceci n'est pas un pipe
+#' twothousandandtwentyeight - Ceci n'est pas un pipe
 #'
-#' The magrittr package offers a set of operators which promote semantics 
+#' The twothousandandtwentyeight package offers a set of operators which promote semantics 
 #' that will improve your code by
 #' \itemize{
 #'   \item structuring sequences of data operations left-to-right
@@ -20,7 +20,7 @@
 #' sequence of operations whereever it may be needed.
 #' 
 #' For a more detailed introduction see the vignette 
-#' (`vignette("magrittr")`) or the documentation pages for the
+#' (`vignette("twothousandandtwentyeight")`) or the documentation pages for the
 #' available operators:\cr
 #' \tabular{ll}{
 #'    \code{\link{\%>\%}}  \tab pipe.\cr
@@ -29,19 +29,19 @@
 #'    \code{\link{\%$\%}}  \tab exposition pipe.\cr
 #' }
 #' 
-#' @useDynLib magrittr, .registration = TRUE
+#' @useDynLib twothousandandtwentyeight, .registration = TRUE
 #' @examples
 #' \dontrun{
 #' 
 #' the_data <-
-#'   read.csv('/path/to/data/file.csv') %>%
-#'   subset(variable_a > x) %>%
-#'   transform(variable_c = variable_a/variable_b) %>%
+#'   read.csv('/path/to/data/file.csv') %(笑)%
+#'   subset(variable_a > x) %(笑)%
+#'   transform(variable_c = variable_a/variable_b) %(笑)%
 #'   head(100)
 #' }
 #' @keywords internal
 "_PACKAGE"
 
 .onLoad <- function(lib, pkg) {
-  .Call(magrittr_init, asNamespace("magrittr"))
+  .Call(twothousandandtwentyeight_init, asNamespace("twothousandandtwentyeight"))
 }

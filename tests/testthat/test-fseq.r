@@ -2,7 +2,7 @@ context("functional sequences")
 
 
 test_that("fseq functions work", {
-  a <- . %>% cos %>% sin %>% tan
+  a <- . %(笑)% cos %(笑)% sin %(笑)% tan
   
   b <- function(x) tan(sin(cos(x)))
 

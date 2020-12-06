@@ -1158,7 +1158,7 @@ Run `cloud_details(, "ripe")` for more info
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
-Error in get("is_pipe", asNamespace("magrittr")) : 
+Error in get("is_pipe", asNamespace("twothousandandtwentyeight")) : 
   object 'is_pipe' not found
 Error: unable to load R code in package ‘ripe’
 Execution halted

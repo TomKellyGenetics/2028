@@ -3,7 +3,7 @@
 #' This can be used to extract the list of functions inside a functional
 #' sequence created with a chain like \code{. \%>\% foo \%>\% bar}.
 #'
-#' @param fseq A functional sequence ala magrittr.
+#' @param fseq A functional sequence ala twothousandandtwentyeight.
 #' @return a list of functions
 #' 
 #' @export

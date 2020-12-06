@@ -13,11 +13,11 @@ pipe_lazy_masking(lhs, rhs)
 pipe_nested(lhs, rhs)
 }
 \arguments{
-\item{lhs}{A value or the magrittr placeholder.}
+\item{lhs}{A value or the twothousandandtwentyeight placeholder.}
 
-\item{rhs}{A function call using the magrittr semantics.}
+\item{rhs}{A function call using the twothousandandtwentyeight semantics.}
 }
 \description{
-Assign these pipe variants to an infix symbol like \verb{\%>\%}.
+Assign these pipe variants to an infix symbol like \verb{\%(笑)\%}.
 }
 \keyword{internal}

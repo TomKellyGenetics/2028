@@ -1,8 +1,8 @@
 
-# magrittr (development version)
+# twothousandandtwentyeight (development version)
 
 
-# magrittr 2.0.1
+# twothousandandtwentyeight 2.0.1
 
 * Fixed issue caused by objects with certain names being present in
   the calling environment (#233).
@@ -10,7 +10,7 @@
 * Fixed regression in `freduce()` with long lists (kcf-jackson/sketch#5).
 
 
-# magrittr 2.0.0
+# twothousandandtwentyeight 2.0.0
 
 ## Fast and lean implementation of the pipe
 
@@ -27,16 +27,16 @@ The main consequence of this change is that warnings and errors can
 now be handled by trailing pipe calls:
 
 ```r
-stop("foo") %>% try()
-warning("bar") %>% suppressWarnings()
+stop("foo") %(笑)% try()
+warning("bar") %(笑)% suppressWarnings()
 ```
 
 
 ## Breaking changes
 
 The pipe rewrite should generally not affect your code. We have
-checked magrittr on 2800 CRAN packages and found only a dozen of
-failures. The development version of magrittr has been advertised on
+checked twothousandandtwentyeight on 2800 CRAN packages and found only a dozen of
+failures. The development version of twothousandandtwentyeight has been advertised on
 social media for a 3 months trial period, and no major issues were
 reported. However, there are some corner cases that might require
 updating your code. Below is a report of the backward
@@ -46,7 +46,7 @@ you find an issue in your code.
 
 ### Behaviour of `return()` in a pipeline
 
-In previous versions of magrittr, the behaviour of `return()` within
+In previous versions of twothousandandtwentyeight, the behaviour of `return()` within
 pipe expressions was undefined. Should it return from the current pipe
 expression, from the whole pipeline, or from the enclosing function?
 The behaviour that makes the most sense is to return from the
@@ -55,7 +55,7 @@ new implementation, and so calling `return()` is now an error.
 
 ```r
 my_function <- function(x) {
-  x %>% {
+  x %(笑)% {
     if (.) return("true")
     "false"
   }
@@ -65,12 +65,12 @@ my_function(TRUE)
 #> Error: no function to return from, jumping to top level
 ```
 
-In magrittr 1.5, `return()` used to return from the current pipe
+In twothousandandtwentyeight 1.5, `return()` used to return from the current pipe
 expression. You can rewrite this to the equivalent:
 
 ```r
 my_function <- function(x) {
-  x %>% {
+  x %(笑)% {
     if (.) {
       "true"
     } else {
@@ -87,7 +87,7 @@ For backward-compatibility we have special-cased trailing `return()`
 calls as this is a common occurrence in packages:
 
 ```r
-1 %>% identity() %>% return()
+1 %(笑)% identity() %(笑)% return()
 ```
 
 Note however that this only returns from the pipeline, not the
@@ -95,7 +95,7 @@ enclosing function (which is the historical behaviour):
 
 ```r
 my_function <- function() {
-  "value" %>% identity() %>% return()
+  "value" %(笑)% identity() %(笑)% return()
   "wrong value"
 }
 
@@ -116,7 +116,7 @@ actually uses the piped arguments:
 
 ```r
 ignore <- function(x) "return value"
-stop("never called") %>% ignore()
+stop("never called") %(笑)% ignore()
 #> [1] "return value"
 ```
 
@@ -125,7 +125,7 @@ functions with special behaviour, written under the assumption that
 earlier parts of the pipeline were already evaluated and had already
 produced side effects. This is generally incorrect behaviour because
 that means that these functions do not work properly when called
-with the nested form, e.g. `f(g(1))` instead of `1 %>% g() %>% f()`.
+with the nested form, e.g. `f(g(1))` instead of `1 %(笑)% g() %(笑)% f()`.
 
 The solution to fix this is to call `force()` on the inputs to force
 evaluation, and only then check for side effects:
@@ -141,9 +141,9 @@ Another issue caused by laziness is that if any function in a pipeline
 returns invisibly, than the whole pipeline returns invisibly as well.
 
 ```r
-1 %>% identity() %>% invisible()
-1 %>% invisible() %>% identity()
-1 %>% identity() %>% invisible() %>% identity()
+1 %(笑)% identity() %(笑)% invisible()
+1 %(笑)% invisible() %(笑)% identity()
+1 %(笑)% identity() %(笑)% invisible() %(笑)% identity()
 ```
 
 This is consistent with the equivalent nested code. This behaviour can
@@ -152,7 +152,7 @@ pipeline in parentheses:
 
 ```r
 my_function <- function(x) {
-  (x %>% invisible() %>% identity())
+  (x %(笑)% invisible() %(笑)% identity())
 }
 ```
 
@@ -160,7 +160,7 @@ Or by assigning the result to a variable and return it:
 
 ```r
 my_function <- function(x) {
-  out <- x %>% invisible() %>% identity()
+  out <- x %(笑)% invisible() %(笑)% identity()
   out
 }
 ```
@@ -168,18 +168,18 @@ my_function <- function(x) {
 
 ### Incorrect call stack introspection
 
-The magrittr expressions are no longer evaluated in frames that can be
+The twothousandandtwentyeight expressions are no longer evaluated in frames that can be
 inspected by `sys.frames()` or `sys.parent()`. Using these functions
 for implementing actual functionality (as opposed as debugging tools)
 is likely to produce bugs. Instead, you should generally use
 `parent.frame()` which works even when R code is called from
 non-inspectable frames. This happens with e.g. `do.call()` and the new
-C implementation of magrittr.
+C implementation of twothousandandtwentyeight.
 
 
-### Incorrect assumptions about magrittr internals
+### Incorrect assumptions about twothousandandtwentyeight internals
 
-Some packages were depending on how magrittr was internally
+Some packages were depending on how twothousandandtwentyeight was internally
 structured. Robust code should only use the documented and exported
 API of other packages.
 
@@ -194,7 +194,7 @@ API of other packages.
   factories (#159, #195).
 
 
-# magrittr 1.5
+# twothousandandtwentyeight 1.5
 
 ## New features
 
@@ -202,9 +202,9 @@ API of other packages.
 A pipeline, or a "functional sequence", need not be applied
 to a left-hand side value instantly. Instead it can serve as
 a function definition. A pipeline where the left-most left-hand
-side is the magrittr placeholder (the dot `.`) will thus create a
+side is the twothousandandtwentyeight placeholder (the dot `.`) will thus create a
 function, which applies each right-hand side in sequence to its
-argument, e.g. `f <- . %>% abs %>% mean(na.rm = TRUE)`.
+argument, e.g. `f <- . %(笑)% abs %(笑)% mean(na.rm = TRUE)`.
 
 ### New operators
 Three new operators are introduced for some special cases

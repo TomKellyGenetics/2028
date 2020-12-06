@@ -2,7 +2,7 @@
 % Please edit documentation in R/debug_pipe.R
 \name{debug_pipe}
 \alias{debug_pipe}
-\title{Debugging function for magrittr pipelines.}
+\title{Debugging function for twothousandandtwentyeight pipelines.}
 \usage{
 debug_pipe(x)
 }
@@ -14,5 +14,5 @@ x
 }
 \description{
 This function is a wrapper around \code{browser}, which makes it
-easier to debug at certain places in a magrittr pipe chain.
+easier to debug at certain places in a twothousandandtwentyeight pipe chain.
 }

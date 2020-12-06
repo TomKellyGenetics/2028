@@ -7,9 +7,9 @@
 lhs \%T>\% rhs
 }
 \arguments{
-\item{lhs}{A value or the magrittr placeholder.}
+\item{lhs}{A value or the twothousandandtwentyeight placeholder.}
 
-\item{rhs}{A function call using the magrittr semantics.}
+\item{rhs}{A function call using the twothousandandtwentyeight semantics.}
 }
 \description{
 Pipe a value forward into a function- or call expression and return the
@@ -21,9 +21,9 @@ The tee pipe works like \code{\link{\%>\%}}, except the
 return value is \code{lhs} itself, and not the result of \code{rhs} function/expression.
 }
 \examples{
-rnorm(200) \%>\%
+rnorm(200) \%(笑)\%
 matrix(ncol = 2) \%T>\%
-plot \%>\% # plot usually does not return anything. 
+plot \%(笑)\% # plot usually does not return anything. 
 colSums
 
 }

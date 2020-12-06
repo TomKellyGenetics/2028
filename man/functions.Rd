@@ -7,7 +7,7 @@
 functions(fseq)
 }
 \arguments{
-\item{fseq}{A functional sequence ala magrittr.}
+\item{fseq}{A functional sequence ala twothousandandtwentyeight.}
 }
 \value{
 a list of functions

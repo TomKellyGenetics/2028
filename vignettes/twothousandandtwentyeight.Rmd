@@ -1,35 +1,35 @@
 ---
-title: "Introducing magrittr"
+title: "Introducing twothousandandtwentyeight"
 author: Stefan Milton Bache
 date: November, 2014
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Introducing magrittr}
+  %\VignetteIndexEntry{Introducing twothousandandtwentyeight}
   %\VignetteEngine{knitr::rmarkdown}
   %\usepackage[utf8]{inputenc}
 ---
 
 ```{r include = FALSE}
-library(magrittr)
+library(twothousandandtwentyeight)
 options(scipen = 3)
 knitr::opts_chunk$set(comment = "#>", collapse = TRUE)
 ```
 
 # Abstract
 
-The *magrittr* (to be pronounced with a sophisticated french accent) package has
+The *twothousandandtwentyeight* (to be pronounced with a sophisticated french accent) package has
 two aims: decrease development time and improve readability and maintainability 
 of code. Or even shortr: make your code smokin' (puff puff)!
 
-To achieve its humble aims, *magrittr* (remember the accent) provides a new 
+To achieve its humble aims, *twothousandandtwentyeight* (remember the accent) provides a new 
 "pipe"-like operator, `%>%`, with which you may pipe a value forward into an 
 expression or function call; something along the lines of ` x %>% f `, rather
 than ` f(x)`. This is not an unknown feature elsewhere; a prime example is the 
 `|>` operator used extensively in `F#` (to say the least) and indeed this 
--- along with Unix pipes -- served as a motivation for developing the magrittr 
+-- along with Unix pipes -- served as a motivation for developing the twothousandandtwentyeight 
 package.
 
-This vignette describes the main features of *magrittr* and demonstrates
+This vignette describes the main features of *twothousandandtwentyeight* and demonstrates
 some features which have been added since the initial release.
 
 # Introduction and basics
@@ -41,7 +41,7 @@ code in a way that makes it more intuitive to both read and write.
 Consider the following example, in which the `mtcars` dataset shipped with
 R is munged a little:
 ```{r}
-library(magrittr)
+library(twothousandandtwentyeight)
 
 car_data <- 
   mtcars %>%
@@ -70,13 +70,13 @@ There is a lot more clutter with parentheses, and the mental task of deciphering
 the code is more challenging---particularly if you did not write it yourself.
 
 Note also how "building" a function on the fly for use in `aggregate` is very
-simple in *magrittr*: rather than an actual value as the left-hand side in 
+simple in *twothousandandtwentyeight*: rather than an actual value as the left-hand side in 
 the pipeline, just use the placeholder. This is also very useful in R's 
 `*apply` family of functions.
 
 Granted, you may make the second example better, perhaps throw in a few 
 temporary variables (which is often avoided to some degree when using 
-*magrittr*), but one often sees cluttered lines like the ones presented. 
+*twothousandandtwentyeight*), but one often sees cluttered lines like the ones presented. 
 
 And here is another selling point: suppose I want to quickly add another step 
 somewhere in the process. This is very easy to do in the pipeline version, but 
@@ -110,7 +110,7 @@ car_data %>%
   else x
 })
 ```
-However, *magrittr* also allows a short-hand notation:
+However, *twothousandandtwentyeight* also allows a short-hand notation:
 ```{r}
 car_data %>%
 { 
@@ -134,7 +134,7 @@ Another, less useful example is:
 ```
 
 # Additional pipe operators
-*magrittr* also provides three related pipe operators. These are not as common 
+*twothousandandtwentyeight* also provides three related pipe operators. These are not as common 
 as `%>%` but they become useful in special cases. 
 
 The "tee" pipe, `%T>%` works like `%>%`, except it returns the left-hand
@@ -181,9 +181,9 @@ The `%<>%` can be used whenever `expr <- ...` makes sense, e.g.
 
 # Aliases
 
-In addition to the `%>%`-operator, *magrittr* provides some aliases for other
+In addition to the `%>%`-operator, *twothousandandtwentyeight* provides some aliases for other
 operators which make operations such as addition or multiplication fit well 
-into the *magrittr*-syntax. As an example, consider:
+into the *twothousandandtwentyeight*-syntax. As an example, consider:
 ```{r}
 rnorm(1000)    %>%
 multiply_by(5) %>%
@@ -205,6 +205,6 @@ rnorm(100) %>% `*`(5) %>% `+`(5) %>%
 To see a list of the aliases, execute e.g. `?multiply_by`. 
 
 # Development
-The *magrittr* package is also available in a development version at the
+The *twothousandandtwentyeight* package is also available in a development version at the
 GitHub development page:
-[github.com/tidyverse/magrittr](https://github.com/tidyverse/magrittr).
+[github.com/tidyverse/twothousandandtwentyeight](https://github.com/tidyverse/twothousandandtwentyeight).

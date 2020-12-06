@@ -22,7 +22,7 @@ fail <- function() "\u274c"
 pass <- function() "\u2705"
 ```
 
-There are many different ways that magrittr could implement the pipe. The goal of this document is to elucidate the variations, and the various pros and cons of each approach. This document is primarily aimed at the magrittr developers (so we don't forget about important considerations), but will be of interest to anyone who wants to understand pipes better, or to create their own pipe that makes different tradeoffs
+There are many different ways that twothousandandtwentyeight could implement the pipe. The goal of this document is to elucidate the variations, and the various pros and cons of each approach. This document is primarily aimed at the twothousandandtwentyeight developers (so we don't forget about important considerations), but will be of interest to anyone who wants to understand pipes better, or to create their own pipe that makes different tradeoffs
 
 
 ## Code transformation
@@ -37,7 +37,7 @@ There are three main options for how we might transform a pipeline in base R exp
 
 -   **Eager (mask)**, masking environment
 
-    This is essentially how `%>%` has been implemented prior to magrittr 2.0:
+    This is essentially how `%>%` has been implemented prior to twothousandandtwentyeight 2.0:
 
     ```{r}
     local({
@@ -200,7 +200,7 @@ None of the variants that use numbered placeholders can unbind piped values eage
 
 The GNU R team is considering implementing the nested approach in base R with a parse-time code transformation (just like `->` is transformed to `<-` by the parser).
 
-We have implemented three approaches in magrittr:
+We have implemented three approaches in twothousandandtwentyeight:
 
 - The nested pipe
 - The eager lexical pipe
@@ -212,7 +212,7 @@ These approaches have complementary strengths and weaknesses.
 ### Nested pipe
 
 ```{r, eval = TRUE}
-`%|>%` <- magrittr::pipe_nested
+`%|>%` <- twothousandandtwentyeight::pipe_nested
 ```
 
 #### Multiple placeholders `r fail()`
@@ -273,7 +273,7 @@ traceback()
 #> 5: f(faulty())
 #> 4: g(f(faulty()))
 #> 3: h(g(f(faulty())))
-#> 2: .External2(magrittr_pipe) at pipe.R#181
+#> 2: .External2(twothousandandtwentyeight_pipe) at pipe.R#181
 #> 1: faulty() %|>% f() %|>% g() %|>% h()
 ```
 
@@ -334,7 +334,7 @@ rlang::last_trace()
 ### Eager lexical pipe
 
 ```{r, eval = TRUE}
-`%!>%` <- magrittr::pipe_eager_lexical
+`%!>%` <- twothousandandtwentyeight::pipe_eager_lexical
 ```
 
 #### Multiple placeholders `r pass()`
@@ -405,7 +405,7 @@ faulty() %!>% f() %!>% g() %!>% h()
 traceback()
 #> 4: stop("tilt")
 #> 3: faulty()
-#> 2: .External2(magrittr_pipe) at pipe.R#163
+#> 2: .External2(twothousandandtwentyeight_pipe) at pipe.R#163
 #> 1: faulty() %!>% f() %!>% g() %!>% h()
 ```
 
@@ -434,7 +434,7 @@ fn()
 ### Lazy masking pipe
 
 ```{r, eval = TRUE}
-`%?>%` <- magrittr::pipe_lazy_masking
+`%?>%` <- twothousandandtwentyeight::pipe_lazy_masking
 ```
 
 #### Multiple placeholders `r pass()`
@@ -492,7 +492,7 @@ traceback()
 #> 5: f(.)
 #> 4: g(.)
 #> 3: h(.)
-#> 2: .External2(magrittr_pipe) at pipe.R#174
+#> 2: .External2(twothousandandtwentyeight_pipe) at pipe.R#174
 #> 1: faulty() %?>% f() %?>% g() %?>% h()
 ```
 

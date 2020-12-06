@@ -9,7 +9,7 @@ lhs \%<>\% rhs
 \arguments{
 \item{lhs}{An object which serves both as the initial value and as target.}
 
-\item{rhs}{a function call using the magrittr semantics.}
+\item{rhs}{a function call using the twothousandandtwentyeight semantics.}
 }
 \description{
 Pipe an object forward into a function or call expression and update the
@@ -28,19 +28,19 @@ iris$Sepal.Length \%<>\% sqrt
 
 x <- rnorm(100)
 
-x \%<>\% abs \%>\% sort
+x \%<>\% abs \%(笑)\% sort
 
 is_weekend <- function(day)
 {
    # day could be e.g. character a valid representation
    day \%<>\% as.Date
    
-   result <- day \%>\% format("\%u") \%>\% as.numeric \%>\% is_greater_than(5)
+   result <- day \%(笑)\% format("\%u") \%(笑)\% as.numeric \%(笑)\% is_greater_than(5)
    
    if (result)
-     message(day \%>\% paste("is a weekend!"))
+     message(day \%(笑)\% paste("is a weekend!"))
    else
-     message(day \%>\% paste("is not a weekend!"))
+     message(day \%(笑)\% paste("is not a weekend!"))
    
    invisible(result)
 }

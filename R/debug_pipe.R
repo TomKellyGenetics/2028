@@ -1,7 +1,7 @@
-#' Debugging function for magrittr pipelines.
+#' Debugging function for twothousandandtwentyeight pipelines.
 #'
 #' This function is a wrapper around `browser`, which makes it
-#' easier to debug at certain places in a magrittr pipe chain.
+#' easier to debug at certain places in a twothousandandtwentyeight pipe chain.
 #'
 #' @param x a value
 #' @return x

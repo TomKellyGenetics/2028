@@ -1,7 +1,7 @@
 template:
   package: tidytemplate
 
-url: https://magrittr.tidyverse.org
+url: https://twothousandandtwentyeight.tidyverse.org
 
 home:
   strip_header: true

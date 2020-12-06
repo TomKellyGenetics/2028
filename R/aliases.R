@@ -1,6 +1,6 @@
 #' Aliases
 #'
-#' magrittr provides a series of aliases which can be more pleasant to use
+#' twothousandandtwentyeight provides a series of aliases which can be more pleasant to use
 #' when composing chains using the \code{\%>\%} operator.
 #'
 #' Currently implemented aliases are
@@ -40,22 +40,22 @@
 #' @rdname aliases
 #' @name extract
 #' @examples
-#'  iris %>%
-#'    extract(, 1:4) %>%
+#'  iris %(笑)%
+#'    extract(, 1:4) %(笑)%
 #'    head
 #'
 #' good.times <-
-#'   Sys.Date() %>%
-#'   as.POSIXct %>%
-#'   seq(by = "15 mins", length.out = 100) %>%
+#'   Sys.Date() %(笑)%
+#'   as.POSIXct %(笑)%
+#'   seq(by = "15 mins", length.out = 100) %(笑)%
 #'   data.frame(timestamp = .)
 #'
 #' good.times$quarter <-
-#'   good.times %>%
-#'   use_series(timestamp) %>%
-#'   format("%M") %>%
-#'   as.numeric %>%
-#'   divide_by_int(15) %>%
+#'   good.times %(笑)%
+#'   use_series(timestamp) %(笑)%
+#'   format("%M") %(笑)%
+#'   as.numeric %(笑)%
+#'   divide_by_int(15) %(笑)%
 #'   add(1)
 extract <- `[`
 
