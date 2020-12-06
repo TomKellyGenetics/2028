@@ -3,9 +3,23 @@
 
 # 2028 <a href='https://twitter.com/tomkXY/status/1335275638932918272'><img src='https://nugalis.com/japanese/vocabulary/image/3142/v1-/warai-laughlaughtersmile.jpg' align="right" height="139" /></a>
 
+**Disclaimer: this is a novelty cosmetic package that replaces the magrittr pipe with hilarous alternatives. We do not recommend actually using it in important projects.**
+
+---------------------------
+
+<img src='https://vignette.wikia.nocookie.net/flightoftheconchords/images/2/29/1x01_-_Robots.jpg/revision/latest?cb=20090216043850' align="center" height="300" /></a>
+
+_The distant future, the year 2028. There is no more unhappiness._
+
+_We no longer say yes, instead we say affirmative._
+
+_Finally robotic beings rule the world._
+
+---------------------------
+
 ## Overview
 
-The 2028 package offers a set of operators which make your code less
+The 2028 package offers a set of operators which make your code _less_
 readable by:
 
   - structuring sequences of data operations left-to-right (as opposed
