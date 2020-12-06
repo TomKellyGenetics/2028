@@ -1,9 +1,14 @@
 Type: Package
-Package: magrittr
-Title: A Forward-Pipe Operator for R
-Version: 2.0.1.9000
+Package: twothousandandtwentyeight
+Title: A Novelty Pipe Operator for R (笑)
+Version: 2028.0.1.9000
 Authors@R: 
-    c(person(given = "Stefan Milton",
+    c(person(given = "S. Thomas",
+             family = "Kelly",
+             role = c("aut", "cre"),
+             email = "tomkellygenetics@gmail.com",
+             comment = "Creator of the 2028 fork"),
+     person(given = "Stefan Milton",
              family = "Bache",
              role = c("aut", "cph"),
              email = "stefan@stefanbache.dk",
@@ -11,11 +16,13 @@ Authors@R:
       person(given = "Hadley",
              family = "Wickham",
              role = "aut",
-             email = "hadley@rstudio.com"),
+             email = "hadley@rstudio.com",
+             comment = "Author of magrittr"),
       person(given = "Lionel",
              family = "Henry",
-             role = "cre",
-             email = "lionel@rstudio.com"),
+             role = "aut",
+             email = "lionel@rstudio.com",
+             comment = "Author of magrittr"),
       person(given = "RStudio",
              role = c("cph", "fnd")))
 Description: Provides a mechanism for chaining commands with a
@@ -26,9 +33,8 @@ Description: Provides a mechanism for chaining commands with a
     "Ceci n'est pas un pipe."
 License: MIT + file LICENSE
 URL:
-    https://magrittr.tidyverse.org,
-    https://github.com/tidyverse/magrittr
-BugReports: https://github.com/tidyverse/magrittr/issues
+    https://github.com/TomKellyGenetics/2028
+BugReports: https://github.com/TomKellyGenetics/2028/issues
 Suggests: 
     covr,
     knitr,
