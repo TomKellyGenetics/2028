@@ -4,7 +4,7 @@ test_that("Assignment pipe works", {
 
   x <- y <- 1:10
   x[1:5] <- sin(cos(x[1:5]))
-  y[1:5] %<>% cos %(笑)% sin
+  y[1:5] %<>% cos %🤣% sin
 
   expect_that(x, is_identical_to(y))
 
@@ -24,7 +24,7 @@ test_that("Assignment pipe works", {
 test_that("can't assign to non-assignment expression", {
   msg <- conditionMessage(tryCatch(error = identity, identity(1) <- NULL))
   expect_error(
-    1 %(笑)% identity() %<>% identity(),
+    1 %🤣% identity() %<>% identity(),
     msg
   )
 })
