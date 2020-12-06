@@ -3,7 +3,7 @@
 
 # 2028 <a href='https://twitter.com/tomkXY/status/1335275638932918272'><img src='https://nugalis.com/japanese/vocabulary/image/3142/v1-/warai-laughlaughtersmile.jpg' align="right" height="139" /></a>
 
-**Disclaimer: this is a novelty cosmetic package that replaces the twothousandandtwentyeight pipe with hilarous alternatives. We do not recommend actually using it in important projects.**
+**Disclaimer: this is a novelty cosmetic package that replaces the magrittr %>% pipe with hilarous alternatives. We do not recommend actually using it in important projects.**
 
 ---------------------------
 
