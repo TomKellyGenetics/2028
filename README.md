@@ -1,21 +1,11 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# magrittr <a href='https:/magrittr.tidyverse.org'><img src='man/figures/logo.png' align="right" height="139" /></a>
-
-<!-- badges: start -->
-
-[![CRAN
-status](https://www.r-pkg.org/badges/version/magrittr)](https://cran.r-project.org/package=magrittr)
-[![Codecov test
-coverage](https://codecov.io/gh/tidyverse/magrittr/branch/master/graph/badge.svg)](https://codecov.io/gh/tidyverse/magrittr?branch=master)
-[![R build
-status](https://github.com/tidyverse/magrittr/workflows/R-CMD-check/badge.svg)](https://github.com/tidyverse/magrittr/actions)
-<!-- badges: end -->
+# 2028 <a href='https://twitter.com/tomkXY/status/1335275638932918272'><img src='https://nugalis.com/japanese/vocabulary/image/3142/v1-/warai-laughlaughtersmile.jpg' align="right" height="139" /></a>
 
 ## Overview
 
-The magrittr package offers a set of operators which make your code more
+The 2028 package offers a set of operators which make your code less
 readable by:
 
   - structuring sequences of data operations left-to-right (as opposed
@@ -51,15 +41,15 @@ chapter](https://r4ds.had.co.nz/pipes.html) in R for data science.
 ## Installation
 
 ``` r
-# The easiest way to get magrittr is to install the whole tidyverse:
-install.packages("tidyverse")
-
-# Alternatively, install just magrittr:
-install.packages("magrittr")
-
-# Or the development version from GitHub:
+# Install the development version from GitHub (this cursed nightmare will never be on CRAN):
 # install.packages("devtools")
-devtools::install_github("tidyverse/magrittr")
+devtools::install_github("TomKellyGenetics/2028")
+```
+
+``` r
+# To install a branch you can specify this:
+# install.packages("devtools")
+devtools::install_github("TomKellyGenetics/2028", ref = "emoji")
 ```
 
 ## Usage
