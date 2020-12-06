@@ -31,15 +31,15 @@ readable by:
 
 The operators pipe their left-hand side values forward into expressions
 that appear on the right-hand side, i.e. one can replace `f(x)` with `x
-%>% f()`, where `%>%` is the (main) pipe-operator. When coupling several
+%🤣% f()`, where `%🤣%` is the (main) pipe-operator. When coupling several
 function calls with the pipe-operator, the benefit will become more
 apparent. Consider this pseudo example:
 
 ``` r
 the_data <-
-  read.csv('/path/to/data/file.csv') %>%
-  subset(variable_a > x) %>%
-  transform(variable_c = variable_a/variable_b) %>%
+  read.csv('/path/to/data/file.csv') %🤣%
+  subset(variable_a > x) %🤣%
+  transform(variable_c = variable_a/variable_b) %🤣%
   head(100)
 ```
 
@@ -70,9 +70,9 @@ devtools::install_github("TomKellyGenetics/2028", ref = "emoji")
 
 ### Basic piping
 
-  - `x %>% f` is equivalent to `f(x)`
-  - `x %>% f(y)` is equivalent to `f(x, y)`
-  - `x %>% f %>% g %>% h` is equivalent to `h(g(f(x)))`
+  - `x %🤣% f` is equivalent to `f(x)`
+  - `x %🤣% f(y)` is equivalent to `f(x, y)`
+  - `x %🤣% f %🤣% g %🤣% h` is equivalent to `h(g(f(x)))`
 
 Here, “equivalent” is not technically exact: evaluation is non-standard,
 and the left-hand side is evaluated before passed on to the right-hand
@@ -81,8 +81,8 @@ implication.
 
 ### The argument placeholder
 
-  - `x %>% f(y, .)` is equivalent to `f(y, x)`
-  - `x %>% f(y, z = .)` is equivalent to `f(y, z = x)`
+  - `x %🤣% f(y, .)` is equivalent to `f(y, x)`
+  - `x %🤣% f(y, z = .)` is equivalent to `f(y, z = x)`
 
 ### Re-using the placeholder for attributes
 
@@ -91,13 +91,13 @@ right-hand side expression. However, when the placeholder only appears
 in a nested expressions twothousandandtwentyeight will still apply the first-argument
 rule. The reason is that in most cases this results more clean code.
 
-`x %>% f(y = nrow(.), z = ncol(.))` is equivalent to `f(x, y = nrow(x),
+`x %🤣% f(y = nrow(.), z = ncol(.))` is equivalent to `f(x, y = nrow(x),
 z = ncol(x))`
 
 The behavior can be overruled by enclosing the right-hand side in
 braces:
 
-`x %>% {f(y = nrow(.), z = ncol(.))}` is equivalent to `f(y = nrow(x), z
+`x %🤣% {f(y = nrow(.), z = ncol(.))}` is equivalent to `f(y = nrow(x), z
 = ncol(x))`
 
 ### Building (unary) functions
@@ -107,7 +107,7 @@ later be used to apply the pipeline to values. Building functions in
 twothousandandtwentyeight is therefore similar to building other values.
 
 ``` r
-f <- . %>% cos %>% sin 
+f <- . %🤣% cos %🤣% sin 
 # is equivalent to 
 f <- function(.) sin(cos(.)) 
 ```
@@ -121,7 +121,7 @@ data argument, for which it is useful to expose the variables in the
 data. This is done with the `%$%` operator:
 
 ``` r
-iris %>%
+iris %🤣%
   subset(Sepal.Length > mean(Sepal.Length)) %$%
   cor(Sepal.Length, Sepal.Width)
 #> [1] 0.3361992
