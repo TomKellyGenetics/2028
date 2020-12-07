@@ -61,9 +61,15 @@ devtools::install_github("TomKellyGenetics/2028")
 ```
 
 ``` r
-# To install a branch you can specify this:
+# To install a branch you can specify this: 🤣
 # install.packages("devtools")
 devtools::install_github("TomKellyGenetics/2028", ref = "emoji")
+```
+
+``` r
+# To install a branch you can specify this: 💩
+# install.packages("devtools")
+devtools::install_github("TomKellyGenetics/2028", ref = "💩")
 ```
 
 ## Usage
