@@ -5,24 +5,24 @@
 #' @param lhs A value or the twothousandandtwentyeight placeholder.
 #' @param rhs A function call using the twothousandandtwentyeight semantics.
 #' @details
-#' \subsection{Using `%(笑)%` with unary function calls}{
+#' \subsection{Using `%💩%` with unary function calls}{
 #' 
-#' When functions require only one argument, `x %(笑)% f` is equivalent
+#' When functions require only one argument, `x %💩% f` is equivalent
 #' to `f(x)` (not exactly equivalent; see technical note below.)
 #' 
 #' }
 #' \subsection{Placing `lhs` as the first argument in `rhs` call}{
 #' 
-#' The default behavior of `%(笑)%` when multiple arguments are required
+#' The default behavior of `%💩%` when multiple arguments are required
 #' in the `rhs` call, is to place `lhs` as the first argument, i.e. 
-#' `x %(笑)% f(y)` is equivalent to `f(x, y)`.
+#' `x %💩% f(y)` is equivalent to `f(x, y)`.
 #' }
 #' \subsection{Placing `lhs` elsewhere in `rhs` call}{
 #' 
 #' Often you will want `lhs` to the `rhs` call at another position than the first.
 #' For this purpose you can use the dot (`.`) as placeholder. For example,
-#' `y %(笑)% f(x, .)` is equivalent to `f(x, y)` and
-#' `z %(笑)% f(x, y, arg = .)` is equivalent to `f(x, y, arg = z)`.
+#' `y %💩% f(x, .)` is equivalent to `f(x, y)` and
+#' `z %💩% f(x, y, arg = .)` is equivalent to `f(x, y, arg = z)`.
 #' }
 #' 
 #' \subsection{Using the dot for secondary purposes}{
@@ -34,25 +34,25 @@
 #' nested function calls. In particular, if the placeholder is only used 
 #' in a nested function call, `lhs` will also be placed as the first argument!
 #' The reason for this is that in most use-cases this produces the most readable 
-#' code. For example, `iris %(笑)% subset(1:nrow(.) %% 2 == 0)` is 
-#' equivalent to `iris %(笑)% subset(., 1:nrow(.) %% 2 == 0)` but
+#' code. For example, `iris %💩% subset(1:nrow(.) %% 2 == 0)` is 
+#' equivalent to `iris %💩% subset(., 1:nrow(.) %% 2 == 0)` but
 #' slightly more compact. It is possible to overrule this behavior by enclosing
-#' the `rhs` in braces. For example, `1:10 %(笑)% {c(min(.), max(.))}` is
+#' the `rhs` in braces. For example, `1:10 %💩% {c(min(.), max(.))}` is
 #' equivalent to `c(min(1:10), max(1:10))`.
 #' }
 #' 
-#' \subsection{Using `%(笑)%` with call- or function-producing `rhs`}{
+#' \subsection{Using `%💩%` with call- or function-producing `rhs`}{
 #' 
 #' It is possible to force evaluation of `rhs` before the piping of `lhs` takes 
 #' place. This is useful when `rhs` produces the relevant call or function.
 #' To evaluate `rhs` first, enclose it in parentheses, i.e. 
-#' `a %(笑)% (function(x) x^2)`, and `1:10 %(笑)% (call("sum"))`.
+#' `a %💩% (function(x) x^2)`, and `1:10 %💩% (call("sum"))`.
 #' Another example where this is relevant is for reference class methods
 #' which are accessed using the `$` operator, where one would do
-#' `x %(笑)% (rc$f)`, and not `x %(笑)% rc$f`.
+#' `x %💩% (rc$f)`, and not `x %💩% rc$f`.
 #' }
 #' 
-#' \subsection{Using lambda expressions with `%(笑)%`}{
+#' \subsection{Using lambda expressions with `%💩%`}{
 #' 
 #' Each `rhs` is essentially a one-expression body of a unary function.
 #' Therefore defining lambdas in twothousandandtwentyeight is very natural, and as 
@@ -90,44 +90,44 @@
 #' 
 #' @examples
 #' # Basic use:
-#' iris %(笑)% head
+#' iris %💩% head
 #' 
 #' # Use with lhs as first argument
-#' iris %(笑)% head(10)
+#' iris %💩% head(10)
 #' 
 #' # Using the dot place-holder
-#' "Ceci n'est pas une pipe" %(笑)% gsub("une", "un", .)
+#' "Ceci n'est pas une pipe" %💩% gsub("une", "un", .)
 #'   
 #' # When dot is nested, lhs is still placed first:
-#' sample(1:10) %(笑)% paste0(LETTERS[.])
+#' sample(1:10) %💩% paste0(LETTERS[.])
 #' 
 #' # This can be avoided:
-#' rnorm(100) %(笑)% {c(min(.), mean(.), max(.))} %(笑)% floor
+#' rnorm(100) %💩% {c(min(.), mean(.), max(.))} %💩% floor
 #' 
 #' # Lambda expressions: 
-#' iris %(笑)%
+#' iris %💩%
 #' {
 #'   size <- sample(1:10, size = 1)
 #'   rbind(head(., size), tail(., size))
 #' }
 #' 
 #' # renaming in lambdas:
-#' iris %(笑)%
+#' iris %💩%
 #' {
 #'   my_data <- .
 #'   size <- sample(1:10, size = 1)
 #'   rbind(head(my_data, size), tail(my_data, size))
 #' }
 #' 
-#' # Building unary functions with %(笑)%
-#' trig_fest <- . %(笑)% tan %(笑)% cos %(笑)% sin
+#' # Building unary functions with %💩%
+#' trig_fest <- . %💩% tan %💩% cos %💩% sin
 #' 
-#' 1:10 %(笑)% trig_fest
+#' 1:10 %💩% trig_fest
 #' trig_fest(1:10)
 #' 
 #' @rdname pipe
 #' @export
-`%(笑)%` <- function(lhs, rhs) {
+`%💩%` <- function(lhs, rhs) {
   lhs <- substitute(lhs)
   rhs <- substitute(rhs)
   kind <- 1L
@@ -138,9 +138,9 @@
 
 #' Lazy and eager pipes
 #'
-#' Assign these pipe variants to an infix symbol like `%(笑)%`.
+#' Assign these pipe variants to an infix symbol like `%💩%`.
 #'
-#' @inheritParams %(笑)%
+#' @inheritParams %💩%
 #' @keywords internal
 #' @export
 pipe_eager_lexical <- function(lhs, rhs) {
@@ -196,19 +196,19 @@ pipe_nested <- function(lhs, rhs) {
 #' 
 #' x <- rnorm(100)
 #' 
-#' x %<>% abs %(笑)% sort
+#' x %<>% abs %💩% sort
 #' 
 #' is_weekend <- function(day)
 #' {
 #'    # day could be e.g. character a valid representation
 #'    day %<>% as.Date
 #'    
-#'    result <- day %(笑)% format("%u") %(笑)% as.numeric %(笑)% is_greater_than(5)
+#'    result <- day %💩% format("%u") %💩% as.numeric %💩% is_greater_than(5)
 #'    
 #'    if (result)
-#'      message(day %(笑)% paste("is a weekend!"))
+#'      message(day %💩% paste("is a weekend!"))
 #'    else
-#'      message(day %(笑)% paste("is not a weekend!"))
+#'      message(day %💩% paste("is not a weekend!"))
 #'    
 #'    invisible(result)
 #' }
@@ -239,9 +239,9 @@ pipe_nested <- function(lhs, rhs) {
 #' @seealso \code{\link{\%>\%}}, \code{\link{\%<>\%}}, \code{\link{\%$\%}}
 #' 
 #' @examples
-#' rnorm(200) %(笑)%
+#' rnorm(200) %💩%
 #' matrix(ncol = 2) %T>%
-#' plot %(笑)% # plot usually does not return anything. 
+#' plot %💩% # plot usually does not return anything. 
 #' colSums
 #' 
 #' @rdname tee
@@ -271,7 +271,7 @@ pipe_nested <- function(lhs, rhs) {
 #' @seealso \code{\link{\%>\%}}, \code{\link{\%<>\%}}, \code{\link{\%T>\%}}
 #' 
 #' @examples
-#' iris %(笑)%
+#' iris %💩%
 #'   subset(Sepal.Length > mean(Sepal.Length)) %$%
 #'   cor(Sepal.Length, Sepal.Width)
 #'   

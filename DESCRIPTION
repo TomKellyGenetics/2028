@@ -1,6 +1,6 @@
 Type: Package
 Package: twothousandandtwentyeight
-Title: A Novelty Pipe Operator for R (笑)
+Title: A Novelty Pipe Operator for R 💩
 Version: 2028.0.1.9000
 Authors@R: 
     c(person(given = "S. Thomas",
@@ -26,7 +26,7 @@ Authors@R:
       person(given = "RStudio",
              role = c("cph", "fnd")))
 Description: Provides a mechanism for chaining commands with a
-    new forward-pipe operator, %(笑)%. This operator will forward a value, or
+    new forward-pipe operator, %💩%. This operator will forward a value, or
     the result of an expression, into the next function call/expression.
     There is flexible support for the type of right-hand side expressions.
     For more information, see package vignette.  To quote Rene Magritte,

@@ -18,6 +18,6 @@ pipe_nested(lhs, rhs)
 \item{rhs}{A function call using the twothousandandtwentyeight semantics.}
 }
 \description{
-Assign these pipe variants to an infix symbol like \verb{\%(笑)\%}.
+Assign these pipe variants to an infix symbol like \verb{\%💩\%}.
 }
 \keyword{internal}

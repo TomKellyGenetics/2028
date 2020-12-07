@@ -22,7 +22,7 @@ of the call. This operator exposes the contents of the left-hand side object
 to the expression on the right to give a similar benefit, see the examples.
 }
 \examples{
-iris \%(笑)\%
+iris \%💩\%
   subset(Sepal.Length > mean(Sepal.Length)) \%$\%
   cor(Sepal.Length, Sepal.Width)
   
