@@ -229,7 +229,7 @@ SEXP pipe_unroll(SEXP lhs,
     case PIPE_KIND_compound: {
       // Technically we want to give `%<>%` the same precedence as `<-`.
       // In practice, since we only support one top-level `%<>%, we
-      // can just interpret it as `%>%` and communicate the assignment
+      // can just interpret it as `%💩%` and communicate the assignment
       // variable via `p_assign`.
       *p_assign = lhs;
       rhs = as_pipe_call(rhs);
@@ -427,7 +427,7 @@ SEXP twothousandandtwentyeight_init(SEXP ns) {
   syms_nested = Rf_install("nested");
   syms_new_lambda = Rf_install("new_lambda");
   syms_paren = Rf_install("(");
-  syms_pipe = Rf_install("%>%");
+  syms_pipe = Rf_install("%💩%");
   syms_pipe_compound = Rf_install("%<>%");
   syms_pipe_dollar = Rf_install("%$%");
   syms_pipe_tee = Rf_install("%T>%");

@@ -32,12 +32,12 @@ Run `cloud_details(, "datamaps")` for more info
     +     strokeColor = c("blue", "red"),
     +     arcSharpness = c(2, 1))
     > 
-    > states %>%
-    +     datamaps(scope = "USA", default = "lightgray") %>%
+    > states %💩%
+    +     datamaps(scope = "USA", default = "lightgray") %💩%
     +     add_arcs(ori.lon, ori.lat, des.lon, des.lat, strokeColor)
     Error in eval(substitute(origin.lon), data) : 
       invalid 'envir' argument of type 'closure'
-    Calls: %>% -> add_arcs -> eval
+    Calls: %💩% -> add_arcs -> eval
     Execution halted
     ```
 
@@ -70,8 +70,8 @@ Run `cloud_details(, "rcrtan")` for more info
     > ### ** Examples
     > 
     > crt_iteman(bh_depend, 2:31, 21, scale = 'raw')
-    Error in data %>% { : no function to return from, jumping to top level
-    Calls: crt_iteman -> %>%
+    Error in data %💩% { : no function to return from, jumping to top level
+    Calls: crt_iteman -> %💩%
     Execution halted
     ```
 
@@ -264,14 +264,14 @@ Run `cloud_details(, "tidytidbits")` for more info
         intersect, setdiff, setequal, union
     
     > x <- c() # now x exists in the calling env
-    > tibble(a=1, b=2) %>%
-    +    mutate(b=a+3) %>%
-    +    interlude(x <- .$b) %>%
+    > tibble(a=1, b=2) %💩%
+    +    mutate(b=a+3) %💩%
+    +    interlude(x <- .$b) %💩%
     +    mutate(a=a+1)
     Warning: `call_stack()` is deprecated as of rlang 0.3.0.
     This warning is displayed once per session.
     Error in stack[[i + 1]] : subscript out of bounds
-    Calls: %>% -> mutate -> interlude
+    Calls: %💩% -> mutate -> interlude
     Execution halted
     ```
 
